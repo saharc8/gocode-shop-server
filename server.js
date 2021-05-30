@@ -3,17 +3,6 @@ const app = express();
 const fs = require("fs");
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("hello");
-});
-
-// app.get("/products", (req, res) => {
-//   fs.readFile("products.json", "utf8", (err, products) => {
-//     const productsArr = JSON.parse(products);
-//     res.send(productsArr);
-//   });
-// });
-
 app.get("/products", (req, res) => {
   const { category } = req.query;
   let { min } = req.query;
