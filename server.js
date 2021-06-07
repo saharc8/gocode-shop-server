@@ -79,12 +79,11 @@ app.put("/products/:id", (req, res) => {
   Product.findOneAndUpdate(
     { _id: id },
     {
-      title,
-      price,
-      description,
-      category,
-      image,
-      s,
+      title: title || product.title,
+      price: price || product.price,
+      description: description || product.description,
+      category: category || product.category,
+      image: image || prduct.image,
     }
   ).then(() => {
     res.send("success");
