@@ -1,10 +1,14 @@
+require("dotenv").config();
+
+const fs = require("fs");
 const express = require("express");
 const app = express();
-const fs = require("fs");
-app.use(express.json());
 const mongoose = require("mongoose");
 
-app.get("/products", (req, res) => {
+app.use(express.json());
+app.use(express.static("client/build"));
+
+app.get("/api/products", (req, res) => {
   const { category } = req.query;
   let { min } = req.query;
   let { max } = req.query;
@@ -43,7 +47,7 @@ app.get("/products", (req, res) => {
     });
 });
 
-app.get("/products/:id", (req, res) => {
+app.get("/api/products/:id", (req, res) => {
   Product.findById(req.params.id)
     .exec()
     .then((product) => {
@@ -56,23 +60,23 @@ app.get("/products/:id", (req, res) => {
     });
 });
 
-app.post("/products", (req, res) => {
+app.post("/api/products", (req, res) => {
   console.log(req.body);
   const { title, price, description, category, image } = req.body;
   Product.insertMany([
     {
-      title,
-      price,
-      description,
-      category,
-      image,
+      title: title || "",
+      price: price || "",
+      description: description || "",
+      category: category || "",
+      image: image || "",
     },
   ]).then(() => {
     res.send("success");
   });
 });
 
-app.put("/products/:id", (req, res) => {
+app.put("/api/products/:id", (req, res) => {
   console.log(req.body);
   const { id } = req.params;
   const { title, price, description, category, image } = req.body;
@@ -90,12 +94,16 @@ app.put("/products/:id", (req, res) => {
   });
 });
 
-app.delete("/products/:id", (req, res) => {
+app.delete("/api/products/:id", (req, res) => {
   console.log(req.body);
   const { id } = req.params;
   Product.findOneAndDelete({ _id: id }).then(() => {
     res.send("success");
   });
+});
+
+app.get("*", (req, res) => {
+  res.sendFile(__dirname + "/client/build/index.html");
 });
 
 const productSchema = new mongoose.Schema({
@@ -107,6 +115,19 @@ const productSchema = new mongoose.Schema({
 });
 
 const Product = mongoose.model("Product", productSchema);
+
+mongoose
+  .connect(
+    `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${process.env.DB_NAME}?retryWrites=true&w=majority`,
+    {
+      useNewUrlParser: true,
+    }
+  )
+  .then(() => {
+    const port = process.env.PORT || 6052;
+    app.listen(port);
+    console.log(`Listening on ${port}`);
+  });
 
 // const product1 = {
 //   title: "Mens Cotton Jacket",
@@ -123,12 +144,3 @@ const Product = mongoose.model("Product", productSchema);
 //   category: "men's clothing",
 //   image: "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg",
 // };
-
-mongoose
-  .connect("mongodb://localhost:27017/products", {
-    useNewUrlParser: true,
-  })
-  .then(() => {
-    console.log("connected");
-    app.listen(6052);
-  });
