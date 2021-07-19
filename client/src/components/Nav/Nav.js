@@ -35,7 +35,7 @@ const Nav = ({ categories, filterByCategory, filterByRange }) => {
             value={value}
             onChange={handleChange}
             valueLabelDisplay="auto"
-            aria-labelledby="range-slider"
+            // aria-labelledby="range-slider"
           />
         )}
       </div>

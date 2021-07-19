@@ -1,8 +1,23 @@
 .cart {
-  width: 40%;
+  width: 30%;
   float: left;
   flex-wrap: wrap;
   position: absolute;
   left: 40px;
-  top: 60px;
+  top: 67px;
+}
+
+.cart h1 {
+  color: blue;
+}
+
+.pay-btn {
+  cursor: pointer;
+  border: 2px;
+  border-radius: 15px;
+  border-color: rgb(119, 72, 72);
+  border-style: solid;
+  position: relative;
+  left: 45px;
+  margin: 10px 10px;
 }

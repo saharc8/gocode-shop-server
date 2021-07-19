@@ -1,0 +1,13 @@
+.Management {
+  color: rgb(187, 34, 34);
+  position: relative;
+}
+
+.start-sale-btn {
+  float: left;
+}
+
+.stop-sale-btn {
+  float: right;
+  bottom: -6.5px;
+}

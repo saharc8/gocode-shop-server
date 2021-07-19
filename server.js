@@ -62,13 +62,13 @@ app.get("/api/products/:id", (req, res) => {
 
 app.post("/api/products", (req, res) => {
   console.log(req.body);
-  const { title, price, description, category, image } = req.body;
+  const { title, description, category, price, image } = req.body;
   Product.insertMany([
     {
       title: title || "",
-      price: price || "",
       description: description || "",
       category: category || "",
+      price: price || "",
       image: image || "",
     },
   ]).then(() => {
@@ -83,11 +83,11 @@ app.put("/api/products/:id", (req, res) => {
   Product.findOneAndUpdate(
     { _id: id },
     {
-      title: title || product.title,
-      price: price || product.price,
-      description: description || product.description,
-      category: category || product.category,
-      image: image || prduct.image,
+      title: title || "",
+      price: price || "",
+      description: description || "",
+      category: category || "",
+      image: image || "",
     }
   ).then(() => {
     res.send("success");
@@ -121,6 +121,7 @@ mongoose
     `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${process.env.DB_NAME}?retryWrites=true&w=majority`,
     {
       useNewUrlParser: true,
+      useUnifiedTopology: true,
     }
   )
   .then(() => {

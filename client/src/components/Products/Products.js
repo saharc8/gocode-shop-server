@@ -1,29 +1,23 @@
 import Product from "../Product/Product";
-import { Grid } from "@material-ui/core";
 
-const Products = ({ products, addToCart }) => {
+const Products = ({ products, addToCart, startSale }) => {
   return (
-    // <Grid
-    //   container
-    //   direction="row-reverse"
-    //   justify="center"
-    //   alignItems="center"
-    // >
     <section className="products">
       {products.map((product) => (
         <Product
-          key={product.id}
-          id={product.id}
+          key={product._id}
+          id={product._id}
           title={product.title}
           price={product.price}
+          salePrice={product.salePrice}
           description={product.description}
           category={product.category}
           image={product.image}
           addToCart={addToCart}
+          startSale={startSale}
         />
       ))}
     </section>
-    // </Grid>
   );
 };
 

@@ -31,13 +31,15 @@
 }
 
 .plus-button {
-  border: 3px solid lightgrey;
+  border: 2px solid lightgrey;
   background-color: #fff;
-  font-size: 16px;
-  height: 2em;
-  width: 2em;
-  border-radius: 999px;
-  position: relative;
-  font-size: 20px;
+  font-size: 14px;
+  height: 30px;
+  width: 110px;
   cursor: pointer;
+  padding: 0px;
+}
+
+.active {
+  text-decoration: line-through;
 }

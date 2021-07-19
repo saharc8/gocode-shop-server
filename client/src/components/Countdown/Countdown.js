@@ -10,7 +10,7 @@ function Countdown() {
     if (difference > 0) {
       timeLeft = {
         // days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((difference / (100000 * 60 * 60)) % 24),
+        // hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
         minutes: Math.floor((difference / 1000 / 60) % 60),
         seconds: Math.floor((difference / 1000) % 60),
       };
@@ -42,8 +42,8 @@ function Countdown() {
     );
   });
   return (
-    <div>
-      <h1>Summer Sale {year}</h1>
+    <div className="countdown-display">
+      <h1>NOW ! ! ! Summer Sale {year}</h1>
       {timerComponents.length ? timerComponents : <span>Time's up!</span>}
     </div>
   );

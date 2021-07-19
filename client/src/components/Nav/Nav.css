@@ -1,12 +1,14 @@
 .product-filter {
   display: flex;
   padding-bottom: 30px;
-  padding-top: 30px;
+  padding-top: 60px;
 }
 
 .store {
   font-size: 50px;
-  margin-left: 400px;
+  position: relative;
+  left: 350px;
+  top: 7px;
 }
 
 .sort {

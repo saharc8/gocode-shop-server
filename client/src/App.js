@@ -6,22 +6,32 @@ import "./components/Product/Product.css";
 import "./components/ProductCart/ProductCart.css";
 import "./components/Cart/Cart.css";
 import "./components/Loading/Loading.css";
-import { React } from "react";
+import "./components/Modal/Modal.css";
+import "./views/Admin/Admin.css";
+import "./views/Home/Home.css";
+import { React, useState } from "react";
 import ProductsDetails from "./views/ProductsDetails";
-import Home from "./views/Home";
+import Admin from "./views/Admin/Admin";
+import Home from "./views/Home/Home";
 import { Route, Switch } from "react-router-dom";
 // import Toggle from "./Components/Toggle";
 // import Todos from "./Components/Todos";
 
 function App() {
+  const [startSale, setStartSale] = useState(false);
+  const [percent, setPercent] = useState(1);
+
   return (
     <>
       <Switch>
+        <Route path="/admin">
+          <Admin setStartSale={setStartSale} setPercent={setPercent} />
+        </Route>
         <Route path="/products/:id">
           <ProductsDetails />
         </Route>
         <Route path="/">
-          <Home />
+          <Home startSale={startSale} percent={percent} />
         </Route>
       </Switch>
     </>

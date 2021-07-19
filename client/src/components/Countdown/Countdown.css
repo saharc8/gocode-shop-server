@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+.countdown-display {
+  position: absolute;
+  left: 325px;
+  width: 185px;
+  top: 65px;
+}
+
+.countdown-display h1 {
+  color: blue;
+  width: 105px;
+}

@@ -3,13 +3,13 @@ import { Link, Route, Switch, useParams } from "react-router-dom";
 
 function ProductsDetails() {
   const { id } = useParams();
-  const [productsJson, setProductsJson] = useState([]);
+  const [productData, setProductData] = useState([]);
 
   useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/${id}`)
+    fetch(`/api/products/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        setProductsJson(data);
+        setProductData(data);
       });
   }, []);
 
@@ -22,18 +22,18 @@ function ProductsDetails() {
         </li>
       </ul>
       <br></br>
-      <h1>{productsJson.title}</h1>
+      <h1>{productData.title}</h1>
       <br></br>
-      <h2>price: {productsJson.price}$</h2>
+      <h2>price: {productData.price}$</h2>
       <br></br>
-      <p>{productsJson.description}</p>
+      <p>{productData.description}</p>
       <br></br>
-      <h6> {productsJson.category}</h6>
+      <h6> {productData.category}</h6>
       <br></br>
-      <img style={{ width: "200px" }} src={productsJson.image}></img>
+      <img style={{ width: "200px" }} src={productData.image}></img>
       <br></br>
       <br></br>
-      <label>for more details : 0545791441</label>
+      <label>for more details : saharc8@gmail.com</label>
       <Switch>
         <Route path="/"></Route>
       </Switch>
