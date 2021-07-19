@@ -2,12 +2,13 @@
   display: flex;
   padding-bottom: 30px;
   padding-top: 60px;
+  padding-right: 40px;
 }
 
 .store {
   font-size: 50px;
   position: relative;
-  left: 350px;
+  left: 310px;
   top: 7px;
 }
 

@@ -79,7 +79,8 @@ const Modal = ({ isShowing, hide, id }) => {
                     label="Image"
                     onChange={(e5) => setImage(e5.target.value)}
                   />{" "}
-                  <br /><br />
+                  <br />
+                  <br />
                   <Button
                     variant="contained"
                     onClick={(e) =>

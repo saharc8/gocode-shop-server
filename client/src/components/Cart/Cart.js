@@ -15,7 +15,14 @@ function Cart({ totalPrice, removeFromCart, startSale }) {
     <div className="cart">
       <h1>Cart</h1>
       <h2>Total Price: {totalPrice.toFixed(2)}$</h2>
-      <br></br>
+      <br />
+      {showPayBtn && (
+        <Button className="pay-btn" variant="contained" color="primary">
+          Pay Now
+        </Button>
+      )}
+      <br />
+      <br />
       <section className="boughtProducts">
         {boughtProducts.map((product) => (
           <ProductCart
@@ -33,12 +40,12 @@ function Cart({ totalPrice, removeFromCart, startSale }) {
           />
         ))}
       </section>
-      <br />
+      {/* <br />
       {showPayBtn && (
         <Button className="pay-btn" variant="contained" color="primary">
           Pay Now
         </Button>
-      )}
+      )} */}
     </div>
   );
 }
