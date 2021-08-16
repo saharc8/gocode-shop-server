@@ -38,10 +38,11 @@
 }
 
 .countdown-display {
-  position: absolute;
-  left: 400px;
+  position: relative;
+  left: 100px;
   width: 185px;
-  top: 75px;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
 .countdown-display h1 {
@@ -56,5 +57,53 @@
 @keyframes blinker {
   50% {
     opacity: 0;
+  }
+}
+
+@media (max-width: 1200px) {
+  .countdown-display {
+    position: relative;
+    left: 100px;
+    width: 85px;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+  .countdown-display h1 {
+    color: blue;
+    width: 105px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 900px) {
+  .countdown-display {
+    position: relative;
+    right: 100px;
+    width: 85px;
+    margin-right: 20px;
+    margin-left: 20px;
+    font-size: 10px;
+  }
+  .countdown-display h1 {
+    color: blue;
+    width: 105px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 800px) {
+  .countdown-display {
+    position: relative;
+    top: -150px;
+    left: -10px;
+    width: 85px;
+    margin-right: 20px;
+    margin-left: 20px;
+    font-size: 10px;
+  }
+  .countdown-display h1 {
+    color: blue;
+    width: 105px;
+    font-size: 15px;
   }
 }

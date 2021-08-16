@@ -9,5 +9,11 @@
 
 .stop-sale-btn {
   float: right;
-  bottom: -6.5px;
+}
+
+@media (max-width: 408px) {
+  .stop-sale-btn {
+    bottom: -10px;
+    float: left;
+  }
 }

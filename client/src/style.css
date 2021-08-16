@@ -173,25 +173,3 @@ h6 {
   color: #666;
   font-size: 14px;
 }
-
-/* Product Layout */
-
-@media (max-width: 600px) {
-  .product-card {
-    flex: 1 46%;
-  }
-}
-
-@media (max-width: 480px) {
-  h1 {
-    margin-bottom: 20px;
-  }
-
-  .product-filter {
-    flex-direction: column;
-  }
-
-  .sort {
-    align-self: flex-start;
-  }
-}

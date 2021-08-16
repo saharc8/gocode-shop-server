@@ -5,11 +5,11 @@
   padding-right: 40px;
 }
 
-.store {
-  font-size: 50px;
+.product-filter h1 {
+  font-size: 40px;
   position: relative;
-  left: 310px;
-  top: 7px;
+  left: 200px;
+  top: 10px;
 }
 
 .sort {
@@ -33,4 +33,68 @@ label {
   font-weight: 500;
   line-height: 2em;
   text-transform: uppercase;
+}
+
+@media (max-width: 1250px) {
+  .product-filter {
+    display: flex;
+    padding-bottom: 30px;
+    padding-top: 60px;
+    padding-right: 40px;
+  }
+  .product-filter h1 {
+    font-size: 30px;
+    position: relative;
+    text-align: center;
+    margin-bottom: 20px;
+    top: -45px;
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  .sort {
+    display: flex;
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 800px) {
+  .product-filter {
+    flex-direction: column;
+  }
+  .product-filter h1 {
+    font-size: 30px;
+    position: static;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .sort {
+    position: relative;
+    left: 30%;
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 450px) {
+  .product-filter {
+    flex-direction: column;
+  }
+  .product-filter h1 {
+    font-size: 30px;
+    position: static;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-left: 40px;
+  }
+
+  .sort {
+    position: relative;
+    resize: vertical;
+    align-self: flex-start;
+  }
+
+  select {
+    width: 50px;
+  }
 }

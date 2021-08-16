@@ -43,7 +43,7 @@ function Countdown() {
   });
   return (
     <div className="countdown-display">
-      <h1 class="blink_me">NOW ! ! ! Summer Sale {year}</h1>
+      <h1 className="blink_me">NOW ! ! ! Summer Sale {year}</h1>
       {timerComponents.length ? timerComponents : <span>Time's up!</span>}
     </div>
   );

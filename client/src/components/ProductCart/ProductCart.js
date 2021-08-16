@@ -19,10 +19,10 @@ const ProductCart = ({
           <br></br>
           <h6>{price.toFixed(2)}$</h6>
           <br></br>
-          <h4>Amount: {amount}</h4>
+          <h4>{amount}</h4>
           <br></br>
           <button onClick={() => removeFromCart(id)} className="minus-button">
-            Remove
+            remove
           </button>
         </div>
       </div>
@@ -39,10 +39,10 @@ const ProductCart = ({
           <h6 className="active">{price.toFixed(2)}$</h6>
           <h6>{salePrice.toFixed(2)}$</h6>
           <br></br>
-          <h4>Amount: {amount}</h4>
+          <h4>{amount}</h4>
           <br></br>
           <button onClick={() => removeFromCart(id)} className="minus-button">
-            Remove
+            remove
           </button>
         </div>
       </div>

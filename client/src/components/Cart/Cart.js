@@ -1,7 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import ProductsHandler from "../../contexts/ProductsHandler";
 import ProductCart from "../ProductCart/ProductCart";
-import Button from "@material-ui/core/Button";
 
 function Cart({ totalPrice, removeFromCart, startSale }) {
   const { boughtProducts } = useContext(ProductsHandler);
@@ -16,11 +15,7 @@ function Cart({ totalPrice, removeFromCart, startSale }) {
       <h1>Cart</h1>
       <h2>Total Price: {totalPrice.toFixed(2)}$</h2>
       <br />
-      {showPayBtn && (
-        <Button className="pay-btn" variant="contained" color="primary">
-          Pay Now
-        </Button>
-      )}
+      {showPayBtn && <button className="pay-btn">PAY NOW</button>}
       <br />
       <br />
       <section className="boughtProducts">
@@ -40,12 +35,6 @@ function Cart({ totalPrice, removeFromCart, startSale }) {
           />
         ))}
       </section>
-      {/* <br />
-      {showPayBtn && (
-        <Button className="pay-btn" variant="contained" color="primary">
-          Pay Now
-        </Button>
-      )} */}
     </div>
   );
 }

@@ -39,7 +39,7 @@ function Home({ startSale, percent }) {
         if (startSale) {
           return {
             ...product,
-            salePrice: product.price * percent,
+            salePrice: product.price - product.price * (percent / 100),
           };
         } else {
           return product;

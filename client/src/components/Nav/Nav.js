@@ -11,10 +11,32 @@ const Nav = ({ categories, filterByCategory, filterByRange }) => {
       width: 300,
       marginRight: 70,
       marginTop: 10,
+      "@media (max-width: 1350px)": {
+        width: 220,
+      },
+      "@media (max-width: 1250px)": {
+        width: 370,
+      },
+      "@media (max-width: 1200px)": {
+        width: 300,
+      },
+      "@media (max-width: 1100px)": {
+        width: 250,
+      },
+      "@media (max-width: 800px)": {
+        width: 250,
+        position: "relative",
+        left: "30%",
+      },
+      "@media (max-width: 450px)": {
+        width: 150,
+        position: "relative",
+        left: "30%",
+      },
     },
   });
-
   const classes = useStyles();
+
   const [value, setValue] = React.useState([minMax[0], minMax[1]]);
 
   const handleChange = (event, newValue) => {
@@ -24,7 +46,7 @@ const Nav = ({ categories, filterByCategory, filterByRange }) => {
 
   return (
     <nav className="product-filter">
-      <h1 className="store">Store</h1>
+      <h1>Lavi Fashion</h1>
 
       <div className={classes.root}>
         <label>price range:</label>
@@ -35,7 +57,7 @@ const Nav = ({ categories, filterByCategory, filterByRange }) => {
             value={value}
             onChange={handleChange}
             valueLabelDisplay="auto"
-            // aria-labelledby="range-slider"
+            aria-labelledby="range-slider"
           />
         )}
       </div>

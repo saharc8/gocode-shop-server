@@ -1,21 +1,81 @@
 .cart {
-  width: 30%;
-  float: left;
-  flex-wrap: wrap;
   position: absolute;
-  left: 40px;
-  top: 67px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 35%;
+  left: 3%;
 }
 
 .cart h1 {
-  color: blue;
+  position: absolute;
+  font-size: 35px;
+  top: -30px;
+}
+
+.cart h2 {
+  position: relative;
+  font-size: 15px;
+  margin-top: 5px;
 }
 
 .pay-btn {
-  cursor: pointer;
-  border: 2px;
-  border-radius: 15px;
-  border-color: rgb(119, 72, 72);
-  border-style: solid;
+  font-family: cursive;
+  padding: 0;
+  color: white;
+  font-size: 12px;
+  background-color: #3f51b5;
+  border-radius: 5%;
+  width: 85px;
+  height: 38px;
   position: relative;
+  cursor: pointer;
+  top: 30px;
+  left: -140px;
+  margin-bottom: 45px;
+}
+
+.pay-btn:hover {
+  background-color: #343e80;
+}
+
+@media (max-width: 800px) {
+  .cart {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    width: 35%;
+    left: 3%;
+  }
+  .cart h1 {
+    position: absolute;
+    font-size: 25px;
+    top: -30px;
+  }
+  .cart h2 {
+    position: relative;
+    font-size: 10px;
+    margin-top: -3px;
+  }
+  .cart .pay-btn {
+    width: 40px;
+    height: 15px;
+    font-size: 7px;
+    position: relative;
+    cursor: pointer;
+    top: 12px;
+    left: -94px;
+  }
+}
+
+@media (max-width: 390px) {
+  .cart .pay-btn {
+    width: 40px;
+    height: 15px;
+    font-size: 7px;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 0;
+    top: -6px;
+    left: -5%;
+  }
 }

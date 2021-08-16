@@ -31,8 +31,9 @@
 }
 
 .plus-button {
-  border: 2px solid lightgrey;
-  background-color: #fff;
+  font-family: cursive;
+  background-color: #3f51b5;
+  color: #fff;
   font-size: 14px;
   height: 30px;
   width: 110px;
@@ -43,4 +44,40 @@
 .active {
   text-decoration: line-through;
   color: red;
+}
+
+@media (max-width: 800px) {
+  .product-card {
+    display: flex;
+    flex-direction: column;
+
+    padding: 2%;
+    flex: 1 16%;
+
+    background-color: #fff;
+    box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.25);
+  }
+
+  .product-image img {
+    width: 50px;
+    margin-left: 30%;
+  }
+
+  .product-info {
+    margin-top: auto;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 10px;
+  }
+
+  .plus-button {
+    font-family: cursive;
+    background-color: #3f51b5;
+    color: #fff;
+    font-size: 7px;
+    height: 15px;
+    width: 80px;
+    cursor: pointer;
+    padding: 0px;
+  }
 }

@@ -1,5 +1,5 @@
 import { Link, Route, Switch } from "react-router-dom";
-import { React, useEffect, useState, useContext } from "react";
+import { React, useEffect, useState } from "react";
 import { DataGrid } from "@material-ui/data-grid";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
@@ -86,16 +86,17 @@ const Admin = ({ setStartSale, setPercent }) => {
           </li>
         </ul>
         <br></br>
-        <div style={{ height: 400, width: "100%" }}>
+        <div style={{ height: 400, width: "100%", cursor: "pointer" }}>
           <DataGrid
             rows={rows}
             columns={columns}
             pageSize={5}
-            checkboxSelection
+            // checkboxSelection
             onSelectionModelChange={(newSelection) => {
-              console.log(newSelection.selectionModel[0]);
-              setId(newSelection.selectionModel[0]);
+              console.log(newSelection);
+              setId(newSelection);
             }}
+            disableMultipleSelection={true}
           />
         </div>
         <Button

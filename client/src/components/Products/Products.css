@@ -1,8 +1,18 @@
 .products {
-  width: 60%;
-  float: right;
-  flex-wrap: wrap;
   display: flex;
+  flex-wrap: wrap;
+  width: 65%;
   position: absolute;
-  right: 50px;
+  right: 3%;
+}
+
+@media (max-width: 800px) {
+  .products {
+    display: flex;
+    flex-wrap: wrap;
+    width: 65%;
+    height: 20%;
+    position: absolute;
+    right: 3%;
+  }
 }
