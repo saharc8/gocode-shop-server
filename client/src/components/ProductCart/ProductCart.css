@@ -25,7 +25,6 @@
 
 .product-info-c h4 {
   font-size: 25px;
-  font-family: cursive;
   padding: 10px 8px 6px 7px;
   height: 30px;
   width: 35px;
@@ -38,7 +37,6 @@
 
 .minus-button {
   position: relative;
-  font-family: cursive;
   background-color: #3f51b5;
   color: #fff;
   font-size: 13px;
@@ -62,7 +60,6 @@
   }
   .minus-button {
     position: relative;
-    font-family: cursive;
     background-color: #3f51b5;
     color: #fff;
     font-size: 13px;
@@ -98,7 +95,6 @@
 
   .product-info-c h4 {
     font-size: 15px;
-    font-family: cursive;
     padding: 6px 7px 12px 7px;
     height: 10px;
     width: 15px;
@@ -116,7 +112,6 @@
   }
 
   .minus-button {
-    font-family: cursive;
     position: relative;
     background-color: #3f51b5;
     color: #fff;
