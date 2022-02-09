@@ -24,7 +24,6 @@ function Home({ startSale, percent }) {
       .then((data) => {
         setProducts(data);
         chkIfSale(data);
-        // findMinMax(data);
         setLoading(false);
       });
   }, []);
@@ -146,7 +145,15 @@ function Home({ startSale, percent }) {
 
   return (
     <>
-      <ProductsHandler.Provider value={{ boughtProducts, minMax }}>
+      <ProductsHandler.Provider
+        value={{
+          boughtProducts,
+          minMax,
+          totalPrice,
+          removeFromCart,
+          startSale,
+        }}
+      >
         {loading ? (
           <Loading />
         ) : (

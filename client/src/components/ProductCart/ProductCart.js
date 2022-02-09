@@ -22,7 +22,7 @@ const ProductCart = ({
           <h4>{amount}</h4>
           <br></br>
           <button onClick={() => removeFromCart(id)} className="minus-button">
-            remove
+            Remove
           </button>
         </div>
       </div>
@@ -42,7 +42,7 @@ const ProductCart = ({
           <h4>{amount}</h4>
           <br></br>
           <button onClick={() => removeFromCart(id)} className="minus-button">
-            remove
+            Remove
           </button>
         </div>
       </div>

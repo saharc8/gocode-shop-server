@@ -14,12 +14,13 @@ import ProductsDetails from "./views/ProductsDetails";
 import Admin from "./views/Admin/Admin";
 import Home from "./views/Home/Home";
 import { Route, Switch } from "react-router-dom";
+import Checkout from "./components/Checkout/Checkout";
 // import Toggle from "./Components/Toggle";
 // import Todos from "./Components/Todos";
 
 function App() {
   const [startSale, setStartSale] = useState(false);
-  const [percent, setPercent] = useState(1);
+  const [percent, setPercent] = useState(0);
 
   return (
     <>
@@ -29,6 +30,9 @@ function App() {
         </Route>
         <Route path="/products/:id">
           <ProductsDetails />
+        </Route>
+        <Route path="/checkout">
+          <Checkout />
         </Route>
         <Route path="/">
           <Home startSale={startSale} percent={percent} />

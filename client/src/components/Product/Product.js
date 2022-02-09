@@ -23,7 +23,7 @@ const Product = ({
           <h6>{price.toFixed(2)}$</h6>
           <br></br>
           <button className="plus-button" onClick={() => addToCart(id)}>
-            add to cart +
+            Add To Cart +
           </button>
         </div>
       </div>

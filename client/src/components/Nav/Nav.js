@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Slider from "@material-ui/core/Slider";
 import ProductsHandler from "../../contexts/ProductsHandler";
@@ -37,7 +37,7 @@ const Nav = ({ categories, filterByCategory, filterByRange }) => {
   });
   const classes = useStyles();
 
-  const [value, setValue] = React.useState([minMax[0], minMax[1]]);
+  const [value, setValue] = useState([minMax[0], minMax[1]]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);

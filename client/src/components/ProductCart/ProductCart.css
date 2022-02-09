@@ -36,12 +36,14 @@
 }
 
 .minus-button {
+  padding: 6px;
   position: relative;
   background-color: #3f51b5;
   color: #fff;
   font-size: 13px;
   font-weight: lighter;
   cursor: pointer;
+  right: 4px;
 }
 
 .active {
@@ -65,7 +67,7 @@
     font-size: 13px;
     font-weight: lighter;
     cursor: pointer;
-    right: 30%;
+    right: 10px;
   }
 }
 
@@ -121,6 +123,6 @@
     cursor: pointer;
     padding: 0px;
     top: -7px;
-    right: 14px;
+    right: 12px;
   }
 }

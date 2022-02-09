@@ -1,28 +1,15 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext } from "react";
 import ProductsHandler from "../../contexts/ProductsHandler";
 import ProductCart from "../ProductCart/ProductCart";
-import { Link } from "react-router-dom";
 
-function Cart() {
+const Checkout = () => {
   const { boughtProducts, totalPrice, removeFromCart, startSale } =
     useContext(ProductsHandler);
-  const [showPayBtn, setShowPayBtn] = useState(false);
-
-  useEffect(() => {
-    boughtProducts.length > 0 ? setShowPayBtn(true) : setShowPayBtn(false);
-  }, [boughtProducts]);
 
   return (
     <div className="cart">
       <h1>Cart</h1>
-      <h2>Total Price: {Math.abs(totalPrice.toFixed(2))}$</h2>
-      <br />
-      {showPayBtn && (
-        <Link className="pay-btn" to="/checkout">
-          PAY NOW
-        </Link>
-      )}
-      <br />
+      <h2>Total Price: {totalPrice.toFixed(2)}$</h2>
       <br />
       <section className="boughtProducts">
         {boughtProducts.map((product) => (
@@ -43,6 +30,6 @@ function Cart() {
       </section>
     </div>
   );
-}
+};
 
-export default Cart;
+export default Checkout;

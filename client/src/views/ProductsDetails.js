@@ -30,7 +30,11 @@ function ProductsDetails() {
       <br></br>
       <h6> {productData.category}</h6>
       <br></br>
-      <img style={{ width: "200px" }} src={productData.image}></img>
+      <img
+        style={{ width: "200px" }}
+        src={productData.image}
+        alt="product-img"
+      />
       <br></br>
       <br></br>
       <label>for more details : saharc8@gmail.com</label>

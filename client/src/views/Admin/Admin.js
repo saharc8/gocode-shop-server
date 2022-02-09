@@ -91,7 +91,6 @@ const Admin = ({ setStartSale, setPercent }) => {
             rows={rows}
             columns={columns}
             pageSize={5}
-            // checkboxSelection
             onSelectionModelChange={(newSelection) => {
               console.log(newSelection);
               setId(newSelection);

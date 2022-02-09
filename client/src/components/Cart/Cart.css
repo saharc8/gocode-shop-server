@@ -19,18 +19,19 @@
 }
 
 .pay-btn {
-  padding: 0;
+  padding: 10px;
   color: white;
   font-size: 12px;
   background-color: #3f51b5;
   border-radius: 5%;
-  width: 85px;
-  height: 38px;
+  width: 55px;
+  height: 12px;
   position: relative;
   cursor: pointer;
   top: 30px;
-  left: -140px;
+  left: -130px;
   margin-bottom: 45px;
+  text-decoration: none;
 }
 
 .pay-btn:hover {
@@ -56,25 +57,27 @@
     margin-top: -3px;
   }
   .cart .pay-btn {
-    width: 40px;
-    height: 15px;
+    padding: 5px;
+    width: 32px;
+    height: 7px;
     font-size: 7px;
     position: relative;
     cursor: pointer;
     top: 12px;
-    left: -94px;
+    left: -86px;
   }
 }
 
-@media (max-width: 390px) {
+@media (max-width: 383px) {
   .cart .pay-btn {
-    width: 40px;
-    height: 15px;
+    padding: 5px;
+    width: 35px;
+    height: 7px;
     font-size: 7px;
     position: relative;
     cursor: pointer;
     margin-bottom: 0;
     top: -6px;
-    left: -5%;
+    left: 1px;
   }
 }
