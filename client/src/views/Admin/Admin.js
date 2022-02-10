@@ -5,6 +5,9 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Modal from "../../components/Modal/Modal";
 import useModal from "../../components/Modal/useModal";
+import { useAuth0 } from "@auth0/auth0-react";
+import Login from "../../components/Login/Login";
+import Logout from "../../components/Logout/Logout";
 
 const Admin = ({ setStartSale, setPercent }) => {
   const [columns, setColumns] = useState([]);
@@ -72,121 +75,131 @@ const Admin = ({ setStartSale, setPercent }) => {
     });
   }
 
+  const { user, isAuthenticated, isLoading } = useAuth0();
+
   return (
     <>
-      <div>
-        <br></br>
-        <ul>
-          <li>
-            <Link to="/">HOME</Link>
-          </li>
+      {isAuthenticated ? (
+        <div>
           <br></br>
-          <li>
-            <h1 className="Management">Management</h1>
-          </li>
-        </ul>
-        <br></br>
-        <div style={{ height: 400, width: "100%", cursor: "pointer" }}>
-          <DataGrid
-            rows={rows}
-            columns={columns}
-            pageSize={5}
-            onSelectionModelChange={(newSelection) => {
-              console.log(newSelection);
-              setId(newSelection);
+          <Logout />
+          <br></br>
+          <ul>
+            <li>
+              <Link to="/">HOME</Link>
+            </li>
+            <br></br>
+            <li>
+              <h1 className="Management">Management</h1>
+            </li>
+          </ul>
+          <br></br>
+          <div style={{ height: 400, width: "100%", cursor: "pointer" }}>
+            <DataGrid
+              rows={rows}
+              columns={columns}
+              pageSize={5}
+              onSelectionModelChange={(newSelection) => {
+                console.log(newSelection);
+                setId(newSelection);
+              }}
+              disableMultipleSelection={true}
+            />
+          </div>
+          <Button
+            variant="contained"
+            onClick={() => {
+              toggle();
             }}
-            disableMultipleSelection={true}
+          >
+            edit
+          </Button>
+          <Modal isShowing={isShowing} hide={toggle} id={id} />
+          &nbsp;
+          <Button variant="contained" onClick={(e) => deleteProduct(id)}>
+            delete
+          </Button>
+          <br /> <br /> <br />
+          <label>New Product</label>
+          <br />
+          <TextField
+            id="title"
+            label="Title"
+            onChange={(e) => setTitle(e.target.value)}
           />
+          &nbsp;
+          <TextField
+            id="description"
+            label="Description"
+            onChange={(e) => setDescription(e.target.value)}
+          />{" "}
+          <TextField
+            id="category"
+            label="Category"
+            onChange={(e) => setCategory(e.target.value)}
+          />{" "}
+          <TextField
+            id="price"
+            label="Price"
+            onChange={(e) => setPrice(e.target.value)}
+          />{" "}
+          <TextField
+            id="image"
+            label="Image"
+            onChange={(e) => setImage(e.target.value)}
+          />
+          <br /> <br />
+          <Button
+            variant="contained"
+            onClick={() =>
+              addProduct(title, description, category, price, image)
+            }
+          >
+            add
+          </Button>
+          <br />
+          <br />
+          <br />
+          <h2>Summer Sale:</h2>
+          <TextField
+            onChange={(e) => {
+              setPercent(e.target.value);
+              console.log(e.target.value);
+            }}
+            id="standard-basic"
+            label="Percent"
+          />
+          <br />
+          <br />
+          <Button
+            className="start-sale-btn"
+            variant="contained"
+            color="primary"
+            onClick={() => {
+              setStartSale(true);
+              window.alert("start sale");
+            }}
+          >
+            start summer sale
+          </Button>
+          <Button
+            className="stop-sale-btn"
+            variant="contained"
+            color="secondary"
+            onClick={() => {
+              setStartSale(false);
+              window.alert("stop sale");
+            }}
+          >
+            stop summer sale
+          </Button>
+          <Switch>
+            <Route path="/"></Route>
+          </Switch>
         </div>
-        <Button
-          variant="contained"
-          onClick={() => {
-            toggle();
-          }}
-        >
-          edit
-        </Button>
-        <Modal isShowing={isShowing} hide={toggle} id={id} />
-        &nbsp;
-        <Button variant="contained" onClick={(e) => deleteProduct(id)}>
-          delete
-        </Button>
-        <br /> <br /> <br />
-        <label>New Product</label>
-        <br />
-        <TextField
-          id="title"
-          label="Title"
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        &nbsp;
-        <TextField
-          id="description"
-          label="Description"
-          onChange={(e) => setDescription(e.target.value)}
-        />{" "}
-        <TextField
-          id="category"
-          label="Category"
-          onChange={(e) => setCategory(e.target.value)}
-        />{" "}
-        <TextField
-          id="price"
-          label="Price"
-          onChange={(e) => setPrice(e.target.value)}
-        />{" "}
-        <TextField
-          id="image"
-          label="Image"
-          onChange={(e) => setImage(e.target.value)}
-        />
-        <br /> <br />
-        <Button
-          variant="contained"
-          onClick={() => addProduct(title, description, category, price, image)}
-        >
-          add
-        </Button>
-        <br />
-        <br />
-        <br />
-        <h2>Summer Sale:</h2>
-        <TextField
-          onChange={(e) => {
-            setPercent(e.target.value);
-            console.log(e.target.value);
-          }}
-          id="standard-basic"
-          label="Percent"
-        />
-        <br />
-        <br />
-        <Button
-          className="start-sale-btn"
-          variant="contained"
-          color="primary"
-          onClick={() => {
-            setStartSale(true);
-            window.alert("start sale");
-          }}
-        >
-          start summer sale
-        </Button>
-        <Button
-          className="stop-sale-btn"
-          variant="contained"
-          color="secondary"
-          onClick={() => {
-            setStartSale(false);
-            window.alert("stop sale");
-          }}
-        >
-          stop summer sale
-        </Button>
-        <Switch>
-          <Route path="/"></Route>
-        </Switch>
-      </div>
+      ) : (
+        <Login />
+      )}
     </>
   );
 };

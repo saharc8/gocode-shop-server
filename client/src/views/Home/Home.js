@@ -7,6 +7,10 @@ import { Link } from "react-router-dom";
 import ProductsHandler from "../../contexts/ProductsHandler";
 import Countdown from "../../components/Countdown/Countdown";
 import Button from "@material-ui/core/Button";
+import Login from "../../components/Login/Login";
+import Logout from "../../components/Logout/Logout";
+import { useAuth0 } from "@auth0/auth0-react";
+import Admin from "../Admin/Admin";
 
 function Home({ startSale, percent }) {
   const [products, setProducts] = useState([]);
@@ -143,6 +147,8 @@ function Home({ startSale, percent }) {
       : setTotalPrice(totalPrice - product.price);
   }
 
+  const { user, isAuthenticated, isLoading } = useAuth0();
+
   return (
     <>
       <ProductsHandler.Provider
@@ -164,9 +170,14 @@ function Home({ startSale, percent }) {
                 variant="contained"
                 color="secondary"
               >
-                admin
+                Admin
               </Button>
             </Link>
+            {isAuthenticated && (
+              <div className="login_msg">
+                <h2 className="welcome_msg">welcome, {user.name}</h2>
+              </div>
+            )}
             <Nav
               categories={categories}
               filterByCategory={filterByCategory}

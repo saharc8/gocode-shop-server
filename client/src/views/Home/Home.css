@@ -5,6 +5,16 @@
   float: left;
 }
 
+.login_msg {
+  width: 8rem;
+  height: 2rem;
+  padding-top: 2rem;
+}
+
+.welcome_msg {
+  margin-top: 1rem;
+}
+
 @media (max-width: 800px) {
   .admin-btn {
     width: 15px;

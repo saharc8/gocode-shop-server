@@ -1,0 +1,8 @@
+.logout_btn {
+  padding: 0.3rem;
+  cursor: pointer;
+  margin: 0;
+  margin-bottom: 0.7rem;
+  background-color: red;
+  color: white;
+}
